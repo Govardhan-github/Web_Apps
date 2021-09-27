@@ -1,13 +1,25 @@
-const fs = require('fs')
+const fs = require('fs');
 const JSONToCSV = require('json2csv').parse;
 const CSVToJSON = require('csvtojson');
 
 //Writing Csv File And Converting CSV TO JSON
 CSVToJSON().fromFile("./source.csv").then(source=>{
+    source.push({
+        "name" : "GOVARDHAN",
+        "address" : "Bethavole",
+        "salary" : "50000"
+    });
     console.log(source);
-})
 
-//Converting JSON File To CSV 
- const csv = JSONToCSV('Employee.json', { fields : ["name" ,"address" ] });
- fs.writeFileSync("./new-Emp.csv" , csv);
-console.log(csv)
+    //Updating the data into Same File
+    let e = JSON.stringify(source);
+    fs.writeFile("Employee.json" ,e,err => {
+    if(err) throw err;
+    console.log("Data written Into New File")
+    console.log("New Updated Data" +e);
+});
+// Converting JSON File To CSV 
+  const csv = JSONToCSV(source, { fields : ["name" ,"address" , "salary"] });
+  fs.writeFileSync("./new-Emp.csv" , csv);
+ console.log(csv)
+});

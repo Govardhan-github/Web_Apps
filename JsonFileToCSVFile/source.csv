@@ -1,2 +1,3 @@
-name,address;
-gopi,hyderabad;
+name,address,salary
+gopi,hyderabad,40000
+nikhila,lbnagar,54400
