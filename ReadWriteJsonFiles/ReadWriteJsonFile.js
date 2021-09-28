@@ -17,7 +17,7 @@ let emp = {
 
 //Writing Into New File
 let e = JSON.stringify(emp);
-fs.writeFile("new-Emp.json" ,e,err => {
+fs.writeFile("rajat.json" ,e,err => {
     if(err) throw err;
     console.log("Data written Into New File")
     console.log("New Updated Data" +e);

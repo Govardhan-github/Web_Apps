@@ -4,6 +4,8 @@ const CSVToJSON = require('csvtojson');
 
 //Writing Csv File And Converting CSV TO JSON
 CSVToJSON().fromFile("./source.csv").then(source=>{
+    source[0].name = "Aachal"
+    console.log(source[0].name);
     source.push({
         "name" : "GOVARDHAN",
         "address" : "Bethavole",
@@ -20,6 +22,6 @@ CSVToJSON().fromFile("./source.csv").then(source=>{
 });
 // Converting JSON File To CSV 
   const csv = JSONToCSV(source, { fields : ["name" ,"address" , "salary"] });
-  fs.writeFileSync("./new-Emp.csv" , csv);
- console.log(csv)
+  fs.writeFileSync("./Govardhan.csv" , csv);
+ console.log(csv);
 });
